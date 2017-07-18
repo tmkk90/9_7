@@ -95,7 +95,10 @@ function checkRoundWinner(playerPick, computerPick) {
         computerResultElem.innerHTML = "Win!";
         computer.score++;
     }
+    setGamePoints()
+    setEndGame()
 }
+
  
 function playerPick(playerPick) {
     var computerPick = getComputerPick();
@@ -107,4 +110,12 @@ function playerPick(playerPick) {
 function setGamePoints() {
     playerPointsElem.innerHTML = player.score;
     computerPointsElem.innerHTML = computer.score;
+}
+
+function setEndGame() {
+	if(player.score == 10 || computer.score == 10){
+		gameState = 'ended';
+		setGameElements();
+	}
+
 }
